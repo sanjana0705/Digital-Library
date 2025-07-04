@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+.page-bg {
+  background: url('{{ url_for('static', filename='library_bg.jpg') }}') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.welcome-text {
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  font-size: 3rem;
+  font-weight: bold;
+}
+</style>
+
+<div class="page-bg">
+  <div class="welcome-text">Welcome to the Digital Library!</div>
+</div>
+{% endblock %}

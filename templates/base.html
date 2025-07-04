@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="navbar">
+    <a href="/">Home</a>
+    {% if session.get('user_id') %}
+      <a href="/user_dashboard">Dashboard</a>
+      <a href="/books">Books</a>
+      <a href="/my_requests">My Requests</a>
+      <a href="/logout">Logout</a>
+    {% elif session.get('admin') %}
+      <a href="/admin_dashboard">Admin Dashboard</a>
+      <a href="/add_book">Add Book</a>
+      <a href="/manage_books">Manage Books</a>
+      <a href="/manage_requests">Manage Requests</a>
+      <a href="/logout">Logout</a>
+    {% else %}
+      <a href="/login">User Login</a>
+      <a href="/signup">Signup</a>
+      <a href="/admin_login">Admin Login</a>
+    {% endif %}
+  </div>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

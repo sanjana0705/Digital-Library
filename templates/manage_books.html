@@ -1,0 +1,33 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h2>Manage Books</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="width:100%; text-align:left;">
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Category</th>
+      
+      <th>Action</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd;">
+        <img src="{{ url_for('static', filename='uploads/' ~ book.image) }}" width="80">
+      </td>
+
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.category }}</td>
+     
+      <td style="padding: 10px; border: 1px solid #ddd;">
+          <a href="{{ url_for('edit_book', book_id=book.id) }}" style="padding: 6px 12px; background-color: #007bff; color: white; border-radius: 4px; text-decoration: none;">Edit</a>
+          <a href="{{ url_for('delete_book', book_id=book.id) }}" style="padding: 6px 12px; background-color: #dc3545; color: white; border-radius: 4px; text-decoration: none; margin-left: 5px;">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

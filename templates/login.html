@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+{% block content %}
+<style>
+.page-bg {
+  background: url('{{ url_for('static', filename='library_bg.jpg') }}') no-repeat center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-box {
+  background: white;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+</style>
+
+<div class="page-bg">
+  <div class="form-box">
+  <h2>User Login</h2>
+  <form method="POST">
+    <input name="email" type="email" placeholder="Email" required>
+    <input name="password" type="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+</div>
+{% endblock %}

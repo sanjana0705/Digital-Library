@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+.book-form-container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.book-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.book-form-container input,
+.book-form-container button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.book-form-container button {
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.book-form-container button:hover {
+  background-color: #555;
+}
+</style>
+
+<div class="book-form-container">
+  <h2>Add New Book</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <input name="title" placeholder="Title" required>
+    <input name="author" placeholder="Author" required>
+    <input name="category" placeholder="Category" required>
+    <input name="image" type="file" accept="image/*" required>
+    <button type="submit">Add Book</button>
+  </form>
+</div>
+{% endblock %}

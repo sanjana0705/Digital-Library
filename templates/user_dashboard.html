@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome, {{ name }}</h2>
+<div style="display: flex; justify-content: center; flex-wrap: wrap; margin-top: 30px; gap: 20px;">
+  <div style="background-color: #f0f8ff; padding: 20px; width: 200px; text-align: center; border-radius: 10px; box-shadow: 0 0 10px #ccc;">
+    <h3>Total Requests</h3>
+    <p style="font-size: 24px; font-weight: bold;">{{ total_requests }}</p>
+  </div>
+  
+  <div style="background-color: #d4edda; padding: 20px; width: 200px; text-align: center; border-radius: 10px; box-shadow: 0 0 10px #ccc;">
+    <h3>Approved</h3>
+    <p style="font-size: 24px; font-weight: bold;">{{ approved_requests }}</p>
+  </div>
+
+  <div style="background-color: #fff3cd; padding: 20px; width: 200px; text-align: center; border-radius: 10px; box-shadow: 0 0 10px #ccc;">
+    <h3>Pending</h3>
+    <p style="font-size: 24px; font-weight: bold;">{{ pending_requests }}</p>
+  </div>
+
+  <div style="background-color: #f8d7da; padding: 20px; width: 200px; text-align: center; border-radius: 10px; box-shadow: 0 0 10px #ccc;">
+    <h3>Rejected</h3>
+    <p style="font-size: 24px; font-weight: bold;">{{ rejected_requests }}</p>
+  </div>
+</div>
+<!--<p style="text-align: center;">Go to <a href="/books">Books</a> to request a book.</p>-->
+{% endblock %}

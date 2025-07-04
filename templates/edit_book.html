@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Book</h2>
+<form method="POST" enctype="multipart/form-data">
+  <input name="title" value="{{ book.title }}" required>
+  <input name="author" value="{{ book.author }}" required>
+  <input name="category" value="{{ book.category }}" required>
+  <select name="available">
+    <option value="Yes" {% if book.available == 'Yes' %}selected{% endif %}>Available</option>
+    <option value="No" {% if book.available == 'No' %}selected{% endif %}>Not Available</option>
+  </select>
+  <label>Current Image:</label><br>
+  <img src="{{ url_for('static', filename='uploads/' ~ book.image) }}" width="100"><br><br>
+  <label>Upload New Image (optional):</label><br>
+  <input name="image" type="file" accept="image/*">
+  <br><br>
+  <button type="submit">Update Book</button>
+</form>
+{% endblock %}
+

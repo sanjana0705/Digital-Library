@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 style="text-align: center; margin-top: 20px;">📩 My Book Requests</h2>
+
+<div style="max-width: 800px; margin: auto; padding: 20px;">
+  {% if requests %}
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th style="padding: 10px; border: 1px solid #ddd;">Title</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Author</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Status</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for req in requests %}
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">{{ req.title }}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">{{ req.author }}</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">{{ req.status }}</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
+            {% if req.status == 'Pending' %}
+              <form action="{{ url_for('delete_user_request', request_id=req.request_id) }}" method="post" style="display:inline;">
+  <button type="submit" onclick="return confirm('Cancel this request?')"
+          style="padding: 5px 10px; background-color: red; color: white; border: none; border-radius: 4px; cursor: pointer;">
+    Delete
+  </button>
+</form>
+
+            {% else %}
+              -
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No requests found.</p>
+  {% endif %}
+</div>
+{% endblock %}
