@@ -346,8 +346,5 @@ def delete_user_request(request_id):
     return redirect('/my_requests')
 
 
-
-
-
 if __name__ == '__main__':
     app.run(debug=True)
